@@ -1,0 +1,121 @@
+@use "../components/buttons" as btns;
+@use "../base/typography" as font;
+@use "../utils/variables" as var;
+@use "../layout/flex" as flx;
+@use "../utils/mixins" as mix;
+
+.hero_section {
+  padding: 83px 0 54px 0;
+  background-color: var.$bg-red;
+  &_kebab {
+    @include flx.flex(space-between, center, 0);
+    @media (max-width: 1315px) {
+      gap: 50px;
+      flex-direction: column;
+    }
+    h4 {
+      @include font.font(23, 700, 29.9, 0.04);
+      color: var.$bg-white;
+    }
+    h1 {
+      max-width: 555px;
+      @include font.font(90, 700, 117, 0.04);
+      color: var.$bg-white;
+      @media (max-width: 566px) {
+        @include font.font(70, 700, 87, 0.04);
+      }
+      @media (max-width: 455px) {
+        @include font.font(45, 700, 67, 0.04);
+      }
+    }
+    p {
+      max-width: 453px;
+      @include font.font(16, 400, 28, 0.04);
+      color: var.$bg-white;
+      opacity: 70%;
+    }
+    button {
+      @include btns.btn(8px 32px, 100, 2px solid var.$bg-white);
+      margin: 30px 0 0 0;
+      color: var.$bg-white;
+      background-color: var.$bg-red;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .hero_section_scroll {
+    padding: 70px 0 0 0;
+    @include flx.flex(end, 0, 0);
+    @media (max-width: 1300px) {
+      display: none;
+    }
+  }
+}
+.owl-carousel .owl-item img {
+  width: 200px;
+}
+.owl-nav {
+  top: -110px;
+  right: 0;
+  position: absolute;
+  font-size: 40px;
+  display: flex;
+  gap: 20px;
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.owl-nav button:hover {
+  background-color: var.$bg-light-gray;
+}
+.owl-nav span:hover {
+  color: var.$bg-red;
+  background-color: var.$bg-light-gray;
+}
+.owl-nav button span {
+  padding: 5px 18px 5px 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(100, 100, 100, 1);
+}
+.owl-nav button span:hover {
+  border: 2px solid var.$bg-red;
+}
+// .owl-prev:hover {
+//   background-color: var.$bg-red;
+//   padding: 3px 15px 3px 15px;
+// }
+.owl-dots {
+  display: none;
+}
+.popular_dishes {
+  padding: 120px 0 120px 0;
+  background-color: var.$bg-light-gray;
+  h3 {
+    padding: 0 0 30px 0;
+    color: var.$bg-red;
+    @include font.font(48, 500, 48, 0.03);
+  }
+  .popular_dishes_cards {
+    @include flx.flex(0, 0, 200);
+    .popular_dishes_card {
+      @include mix.card(20px 20px 40px 20px, 310, 14, var.$bg-white);
+      img {
+        margin: 0 auto;
+        // @include flx.flex(center, 0, 0);
+      }
+      h5 {
+        padding: 10px 0 0 0;
+        text-align: center;
+        @include font.font(18, 600, 24.51, 0);
+      }
+      h3 {
+        padding: 20px 0 0 0;
+        text-align: center;
+        color: var.$bg-red;
+        @include font.font(24, 700, 32.68, 0);
+      }
+    }
+  }
+}
